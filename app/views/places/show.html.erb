@@ -1,6 +1,5 @@
 <h1><%= @place["name"] %></h1>
 
-<h2>My Entries</h2>
 <% user = User.find_by({ "id" => session["user_id"] })%>
 <% for entry in @entries %>
   <% if user.id == entry.user_id %>
@@ -13,7 +12,7 @@
 <p>
   <% @user = User.find_by({ "id" => session["user_id"] }) %>
     <% if @user%>
-      <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
+      <a href="/entries/new?place_id=<%= @place["id"] %>">New Post</a>
     <% end %>
 </p>
 
