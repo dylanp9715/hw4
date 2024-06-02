@@ -16,8 +16,11 @@
             <h3><%= entry.title %></h3>
             <h4 class="text-muted"><%= entry.occurred_on %></h4>
             <div class="entry-image mb-3">
-              <!-- Placeholder for image -->
-              <img src="path/to/image" alt="<%= entry.title %>" class="img-fluid">
+              <% if entry.uploaded_image.attached? %>
+                <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
+              <% else %>
+                <img src="<%= entry["image"] %>" class="img-fluid">
+              <% end %>
             </div>
             <p><%= entry.description %></p>
           </div>
